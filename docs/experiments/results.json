@@ -1,0 +1,305 @@
+{
+  "baseline_instructor_split": {
+    "as_given": {
+      "accuracy": 0.9912,
+      "precision": 0.9883,
+      "recall": 0.9958,
+      "f1": 0.992,
+      "roc_auc": 0.9993,
+      "confusion_matrix": [
+        [
+          3441,
+          50
+        ],
+        [
+          18,
+          4221
+        ]
+      ],
+      "training_seconds": 6.17,
+      "n_features": 27156
+    },
+    "reuter_token_removed": {
+      "accuracy": 0.986,
+      "precision": 0.9823,
+      "recall": 0.9925,
+      "f1": 0.9873,
+      "roc_auc": 0.9985,
+      "confusion_matrix": [
+        [
+          3415,
+          76
+        ],
+        [
+          32,
+          4207
+        ]
+      ],
+      "training_seconds": 6.46,
+      "n_features": 27155
+    },
+    "train_test_exact_overlap": 82
+  },
+  "dataset": {
+    "raw_rows": 44898,
+    "after_cleaning": 38653,
+    "train": 30922,
+    "test": 7731,
+    "fake": 17459,
+    "real": 21194
+  },
+  "exp_a_preprocessing_strategies": {
+    "L0_no_leakage_removal": {
+      "accuracy": 0.9938,
+      "precision": 0.9906,
+      "recall": 0.9981,
+      "f1": 0.9944,
+      "roc_auc": 0.9995,
+      "confusion_matrix": [
+        [
+          3452,
+          40
+        ],
+        [
+          8,
+          4231
+        ]
+      ],
+      "training_seconds": 5.32,
+      "n_features": 27118
+    },
+    "L1_reuters_removed": {
+      "accuracy": 0.9865,
+      "precision": 0.9816,
+      "recall": 0.9941,
+      "f1": 0.9878,
+      "roc_auc": 0.9991,
+      "confusion_matrix": [
+        [
+          3413,
+          79
+        ],
+        [
+          25,
+          4214
+        ]
+      ],
+      "training_seconds": 5.72,
+      "n_features": 27065
+    },
+    "L2_full_removal": {
+      "accuracy": 0.9858,
+      "precision": 0.9816,
+      "recall": 0.9927,
+      "f1": 0.9871,
+      "roc_auc": 0.999,
+      "confusion_matrix": [
+        [
+          3413,
+          79
+        ],
+        [
+          31,
+          4208
+        ]
+      ],
+      "training_seconds": 5.84,
+      "n_features": 27065
+    },
+    "L2_no_stemming": {
+      "accuracy": 0.9869,
+      "precision": 0.9832,
+      "recall": 0.9932,
+      "f1": 0.9881,
+      "roc_auc": 0.9992,
+      "confusion_matrix": [
+        [
+          3420,
+          72
+        ],
+        [
+          29,
+          4210
+        ]
+      ],
+      "training_seconds": 6.18,
+      "n_features": 41982
+    },
+    "L2_keep_stopwords": {
+      "accuracy": 0.9875,
+      "precision": 0.9848,
+      "recall": 0.9925,
+      "f1": 0.9886,
+      "roc_auc": 0.9991,
+      "confusion_matrix": [
+        [
+          3427,
+          65
+        ],
+        [
+          32,
+          4207
+        ]
+      ],
+      "training_seconds": 8.58,
+      "n_features": 27238
+    }
+  },
+  "exp_b_feature_extraction": {
+    "bow": {
+      "accuracy": 0.9796,
+      "precision": 0.9755,
+      "recall": 0.9875,
+      "f1": 0.9815,
+      "roc_auc": 0.9957,
+      "confusion_matrix": [
+        [
+          3387,
+          105
+        ],
+        [
+          53,
+          4186
+        ]
+      ],
+      "training_seconds": 8.83,
+      "n_features": 27065
+    },
+    "tfidf": {
+      "accuracy": 0.9858,
+      "precision": 0.9816,
+      "recall": 0.9927,
+      "f1": 0.9871,
+      "roc_auc": 0.999,
+      "confusion_matrix": [
+        [
+          3413,
+          79
+        ],
+        [
+          31,
+          4208
+        ]
+      ],
+      "training_seconds": 5.44,
+      "n_features": 27065
+    },
+    "tfidf_bigram": {
+      "accuracy": 0.9872,
+      "precision": 0.9825,
+      "recall": 0.9943,
+      "f1": 0.9884,
+      "roc_auc": 0.9991,
+      "confusion_matrix": [
+        [
+          3417,
+          75
+        ],
+        [
+          24,
+          4215
+        ]
+      ],
+      "training_seconds": 28.09,
+      "n_features": 50000
+    }
+  },
+  "exp_c_model_comparison": {
+    "logistic_regression": {
+      "accuracy": 0.9872,
+      "precision": 0.9825,
+      "recall": 0.9943,
+      "f1": 0.9884,
+      "roc_auc": 0.9991,
+      "confusion_matrix": [
+        [
+          3417,
+          75
+        ],
+        [
+          24,
+          4215
+        ]
+      ],
+      "training_seconds": 28.61,
+      "n_features": 50000
+    },
+    "_vectorizer": "tfidf_bigram",
+    "naive_bayes": {
+      "accuracy": 0.9536,
+      "precision": 0.9586,
+      "recall": 0.9566,
+      "f1": 0.9576,
+      "roc_auc": 0.9879,
+      "confusion_matrix": [
+        [
+          3317,
+          175
+        ],
+        [
+          184,
+          4055
+        ]
+      ],
+      "training_seconds": 26.38,
+      "n_features": 50000
+    },
+    "linear_svm": {
+      "accuracy": 0.9897,
+      "precision": 0.9887,
+      "recall": 0.9925,
+      "f1": 0.9906,
+      "roc_auc": 0.9993,
+      "confusion_matrix": [
+        [
+          3444,
+          48
+        ],
+        [
+          32,
+          4207
+        ]
+      ],
+      "training_seconds": 28.26,
+      "n_features": 50000
+    },
+    "random_forest": {
+      "accuracy": 0.9743,
+      "precision": 0.9698,
+      "recall": 0.9837,
+      "f1": 0.9767,
+      "roc_auc": 0.9974,
+      "confusion_matrix": [
+        [
+          3362,
+          130
+        ],
+        [
+          69,
+          4170
+        ]
+      ],
+      "training_seconds": 86.81,
+      "n_features": 10000
+    },
+    "xgboost": {
+      "accuracy": 0.9858,
+      "precision": 0.9834,
+      "recall": 0.9908,
+      "f1": 0.9871,
+      "roc_auc": 0.999,
+      "confusion_matrix": [
+        [
+          3421,
+          71
+        ],
+        [
+          39,
+          4200
+        ]
+      ],
+      "training_seconds": 239.21,
+      "n_features": 10000
+    }
+  }
+}
