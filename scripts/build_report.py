@@ -27,7 +27,7 @@ from reportlab.platypus import (CondPageBreak, Image as RLImage, KeepTogether, P
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--name", default="[Student name]"); ap.add_argument("--student-id", default="[Student ID]")
-ap.add_argument("--github", default="[GitHub repository link]"); ap.add_argument("--supervisor", default="[Instructor]")
+ap.add_argument("--github", default="[GitHub repository link]"); ap.add_argument("--supervisor", default=None, help="optional; the row is omitted when not given")
 args = ap.parse_args()
 
 DOCS = ROOT / "docs"; SHOTS = DOCS / "screenshots"; FIG = DOCS / "figures"; FIG.mkdir(exist_ok=True)
@@ -171,8 +171,8 @@ story += [Spacer(1, 4 * cm), P("WEX 428 - NLP / Sentiment Analysis Project Repor
           P("Fake News Explainability Platform", ParagraphStyle("t1", parent=h1, fontSize=26, leading=31, spaceBefore=6)),
           P("An AI-powered web application that classifies news articles as Fake or Real and explains the decision with LIME and SHAP", ParagraphStyle("t2", parent=body, fontSize=11.5, leading=16)),
           Spacer(1, 1.2 * cm),
-          table([["Student", args.name], ["Student ID", args.student_id], ["Instructor", args.supervisor], ["University", "Ostim Technical University"],
-                 ["Date", date.today().strftime("%d %B %Y")], ["Source code", args.github]], [3.5, 12.5], head=False),
+          table([["Student", args.name], ["Student ID", args.student_id]] + ([["Instructor", args.supervisor]] if args.supervisor else []) + [["University", "Ostim Technical University"],
+                 ["Date", date.today().strftime("%d %B %Y")], ["Source code", f'<font size="6.6">{args.github}</font>']], [3.5, 12.5], head=False),
           Spacer(1, 1.2 * cm),
           P("Every figure in this report was produced by the code in the repository: experiment results by <i>scripts/run_experiments.py</i>, "
             "platform metrics by the administrator training pipeline, and screenshots by an automated browser test.", small), PageBreak()]
