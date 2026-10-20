@@ -12,3 +12,6 @@ frontend/dist/
 dataset/
 logs/
 *.log
+
+# temporary crops made while building the report
+docs/figures/crop_*.png

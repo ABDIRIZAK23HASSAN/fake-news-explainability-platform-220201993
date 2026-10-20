@@ -1,0 +1,16 @@
+# Build context of the backend image is the repository root: keep secrets, data and bulky files OUT of the image.
+.git
+.github
+.env
+.env.*
+!.env.example
+dataset
+docs
+logs
+frontend
+**/node_modules
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+backend/storage
+backend/tests

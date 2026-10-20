@@ -276,7 +276,7 @@ story += [P("8. Testing and defects found", h1),
                  ["LIME gave noise weights to stop-words that the pipeline removes", "Screenshot review", "Filter words that preprocessing discards"],
                  ["Training split order was not fixed (could differ on PostgreSQL)", "Code review", "Order articles by id before splitting"],
                  ["Predictions ignored the pasted headline although the models are trained on 'title. text' (81.0% vs 80.65% for the same article)", "Comparing the UI result with the demo-article script", "Same document form at inference; regression test"]], [7.2, 4.4, 4.9]),
-          Spacer(1, 4), P("<b>Not tested:</b> the Docker images were written but not built in the development environment; performance under many concurrent users; accessibility audit with assistive technology.")]
+          Spacer(1, 4), P("<b>Not tested:</b> the Docker images were never built or run (the same steps were verified outside Docker: clean environment, PostgreSQL, nginx); performance under many concurrent users; accessibility audit with assistive technology.")]
 
 C = lambda a, b, c: [a, b, c]
 story += [P("9. Coverage of the assignment requirements", h1),
@@ -292,7 +292,7 @@ story += [P("9. Coverage of the assignment requirements", h1),
                  C("Administrator dashboard, analytics, explainability monitoring, logs (FR-9, 7.2)", "Done", "Chart.js charts"),
                  C("User dashboard, profile, preferences, delete account", "Done", "export-format preference is used in the history; language and e-mail-notification preferences are stored but not used yet"),
                  C("Light / dark mode, responsive, 404 / 500 pages", "Done", "the administrator's default theme applies to visitors who have not chosen one"),
-                 C("Docker, Docker Compose, CI (9)", "Written, not built", "no Docker in the development environment; cloud deployment (AWS, Azure, GCP) not done"),
+                 C("Docker, Docker Compose, Nginx, CI (9)", "Written; partly verified", "backend, PostgreSQL and nginx checked outside Docker (clean environment, health check, bootstrap, browser test through nginx); images never built; CI workflow written; cloud deployment not done"),
                  C("TXT / PDF upload (FR-3)", "Done", "scanned PDFs without text cannot be read")], [8, 2.4, 6.1])]
 
 story += [P("10. Limitations, ethics and future work", h1),

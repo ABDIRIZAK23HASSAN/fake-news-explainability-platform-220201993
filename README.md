@@ -102,8 +102,12 @@ non-root container user, security headers.
   no e-mails are sent unless SMTP is configured, and then only for password reset). Not implemented: refresh tokens
   (optional in the assignment), Word2Vec / FastText / BM25, cloud deployment.
 * Password-reset links are written to the backend log when SMTP is not configured.
-* Docker images were written but **not built in the development environment** (no Docker there); the backend
-  suite was run on PostgreSQL 16 and SQLite, and the frontend in headless Chromium.
+* **Docker:** the images themselves have **not** been built or run (no Docker in the development environment). What was
+  verified outside Docker, step by step as the Dockerfiles do it: a clean Python 3.12 venv from `requirements.txt`;
+  the backend started with the compose environment variables on PostgreSQL 16; the Dockerfile `HEALTHCHECK` command;
+  `bootstrap.py` from the container folder layout; the real `nginx.conf` (syntax, SPA fallback, asset caching, `/api`
+  proxy, 25 MB upload) and the browser test run through nginx; the npm lockfile contains the musl binaries needed by
+  `node:alpine`. Still unverified: `docker build`, named-volume permissions for the non-root user, `docker compose up` itself.
 
 ## Repository layout
 

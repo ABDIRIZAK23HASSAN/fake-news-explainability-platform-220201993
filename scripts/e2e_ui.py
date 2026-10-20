@@ -3,7 +3,8 @@ import sys, json, re, pandas as pd
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-BASE = "http://127.0.0.1:5173"
+import os
+BASE = os.environ.get("BASE_URL", "http://127.0.0.1:5173")
 SHOTS = Path(__file__).resolve().parents[1] / "docs" / "screenshots"
 DATA = Path(sys.argv[1] if len(sys.argv) > 1 else "/mnt/user-data/uploads")
 
