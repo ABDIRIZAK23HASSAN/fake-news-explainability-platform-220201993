@@ -17,4 +17,4 @@ scikit-learn==1.8.0
 shap==0.53.0
 SQLAlchemy==2.1.4
 uvicorn==0.54.0
-xgboost==3.4.1
+xgboost-cpu==3.4.1
